@@ -1,0 +1,26 @@
+{
+  "name": "telegraf.clients",
+  "version": "1.0.0",
+  "description": "telegraf.clients typescript fork",
+  "main": "out/index.js",
+  "dependencies": {
+    "@types/node": "^12.12.6",
+    "tspath_ext": "^1.3.15",
+    "typescript": "^3.7.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build": "rm -rf out && npm run compile",
+    "compile": "tsc && node node_modules/tspath_ext/dist/tspath.js -f"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/takovoy/Telegraf.Clients.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/takovoy/Telegraf.Clients/issues"
+  },
+  "homepage": "https://github.com/takovoy/Telegraf.Clients#readme"
+}
