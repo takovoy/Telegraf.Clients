@@ -1,5 +1,5 @@
 {
-  "name": "telegraf.clients",
+  "name": "telegraf.clients.ts",
   "version": "1.0.0",
   "description": "telegraf.clients typescript fork",
   "main": "out/index.js",
@@ -17,7 +17,7 @@
     "type": "git",
     "url": "git+https://github.com/takovoy/Telegraf.Clients.git"
   },
-  "author": "",
+  "author": "takovoy",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/takovoy/Telegraf.Clients/issues"
