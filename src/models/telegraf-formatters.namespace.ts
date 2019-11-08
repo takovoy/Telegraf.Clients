@@ -43,7 +43,7 @@ export namespace Formatters {
         }
 
         public static formatDate(value: Date): string {
-            return (+value * 100).toString();
+            return value.getTime().toString();
         }
 
         private static getFormatter<ValueType>(value: ValueType): Common.Func<ValueType, string> {
@@ -61,7 +61,7 @@ export namespace Formatters {
                 .replace(" ", "\\ ")
                 .replace(",", "\\,")
                 .replace("=", "\\=")
-                .replace(/[/\\?%*:|"<>]/g, "") || null;
+                .replace(/[/?%*:|"<>]/g, "") || null;
         }
     }
 

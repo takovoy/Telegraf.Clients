@@ -43,7 +43,7 @@ export namespace Statsd {
         }
     }
 
-    class Metric {
+    export class Metric {
         constructor(
             public name: string,
             public type: MetricType,
@@ -105,7 +105,7 @@ export namespace Statsd {
         }
     }
 
-    class MetricSerializer {
+    export class MetricSerializer {
         public static serializeMetric(metric: Metric): string {
             const value = this.formattedMetricValue(metric.type, metric.value, metric.sample);
             const measurement = MeasurementBuilder.buildMeasurement(metric.name);
@@ -131,7 +131,9 @@ export namespace Statsd {
             if (!metricTypeSpecifier || !metricTypeSpecifier.trim()) {
                 throw new Error(`Argument "metricTypeSpecifier" is invalid`);
             }
-            return sample < 1 ? `|@${sample}` : `${value}|${metricTypeSpecifier}`;
+            return sample < 1 ?
+                `${value}|${metricTypeSpecifier}|@${sample}` :
+                `${value}|${metricTypeSpecifier}`;
         }
 
         private static getMetricTypeSpecifier(metricType: MetricType) {
