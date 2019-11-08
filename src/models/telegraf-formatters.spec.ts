@@ -16,7 +16,8 @@ describe("Formatters test", () => {
         });
         it("Should correctly format Date value", () => {
             const date = new Date("2019/11/08");
-            expect(Formatters.FieldValueFormatter.format(date)).equal(`${date.getTime()}`);
+            const influxCorrelationTics = 1000000;
+            expect(Formatters.FieldValueFormatter.format(date)).equal(`${date.getTime() * influxCorrelationTics}`);
         });
         it("Should correctly format stroke value", () => {
             expect(Formatters.FieldValueFormatter.format("too warm")).equal("\"too warm\"");

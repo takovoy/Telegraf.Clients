@@ -43,7 +43,7 @@ export namespace Formatters {
         }
 
         public static formatDate(value: Date): string {
-            return (value.getTime() * 100).toString();
+            return (value.getTime() * 1000000).toString();
         }
 
         private static getFormatter<ValueType>(value: ValueType): Common.Func<ValueType, string> {
