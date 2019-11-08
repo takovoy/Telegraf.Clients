@@ -76,7 +76,7 @@ export namespace Influx {
         }
 
         private assignTags(tags: Common.Dictionary<string>): Common.Dictionary<string> {
-            return Object.assign(this.tags, tags || {});
+            return Object.assign(tags || {}, this.tags);
         }
     }
 }

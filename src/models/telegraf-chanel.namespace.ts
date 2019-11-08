@@ -23,7 +23,7 @@ export namespace Chanel {
 
         public write(metric: string): Promise<number> {
             if (!metric || !metric.trim()) {
-                return;
+                return Promise.reject("Invalid metric data");
             }
             const encodedCommand = Buffer.from(metric, "utf8");
             return new Promise<number>((resolve, reject) => this._socket.send(

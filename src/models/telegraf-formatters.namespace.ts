@@ -55,9 +55,15 @@ export namespace Formatters {
     }
 
     export class KeyFormatter {
-        public static format(value: string): string {
-            return value && value.trim()
-                .toLowerCase()
+        public static format(value: string, saveRegister: boolean = false): string {
+            let trimmedValue = value && value.trim();
+            if (!trimmedValue) {
+                return null;
+            }
+            if (!saveRegister) {
+                trimmedValue = trimmedValue.toLowerCase();
+            }
+            return trimmedValue
                 .replace(" ", "\\ ")
                 .replace(",", "\\,")
                 .replace("=", "\\=")
@@ -76,7 +82,7 @@ export namespace Formatters {
             }
 
             const formattedTags = {};
-            Object.keys(tags).forEach(key => formattedTags[KeyFormatter.format(key)] = KeyFormatter.format(tags[key]));
+            Object.keys(tags).forEach(key => formattedTags[KeyFormatter.format(key)] = KeyFormatter.format(tags[key], true));
             return Object.keys(formattedTags)
                 .filter(key => key && key.trim() && formattedTags[key] && formattedTags[key].trim())
                 .map(key => `${key}=${formattedTags[key]}`);
